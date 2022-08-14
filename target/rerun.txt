@@ -1,0 +1,4 @@
+file:src/main/resources/feature/SC_01_Register.feature:5
+file:src/main/resources/feature/SC_02_Login.feature:4
+file:src/main/resources/feature/SC_07_FollowUs.feature:13
+file:src/main/resources/feature/SC_8_WishListAdding.feature:11
