@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.List;
+
 public class PA_03_CurranciesMainPage {
     public PA_03_CurranciesMainPage(){PageFactory.initElements(Hooks.driver,this);}
     public WebElement getElementByCssSelector(String element){return Hooks.driver.findElement(By.cssSelector(element));}
@@ -18,9 +20,13 @@ public class PA_03_CurranciesMainPage {
         select.selectByValue("https://demo.nopcommerce.com/changecurrency/6?returnUrl=%2F");
 
     }
-    public void CU_2_CurrencySymol(){
-        String expectedCurrency = "Euro";
-        String actualCurrency = getElementByCssSelector("option[selected]").getText();
-        Assert.assertTrue(actualCurrency.contains(expectedCurrency));
+    public void CU_2_CurrencySymol()
+    {
+        List<WebElement> productlist = Hooks.driver.findElements(By.cssSelector("span[class='price actual-price']"));
+        String expectedCurrency = "€";
+        for(int i = 0 ;i <  productlist.size() ;i++)
+        {
+            Assert.assertTrue(productlist.get(i).getText().contains(expectedCurrency));
+        }
     }
 }
